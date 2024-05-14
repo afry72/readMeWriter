@@ -4,7 +4,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input ???
+// TODO: Create an array of questions for user input ✅
 const questions = [
     {
       type: 'input',
@@ -32,9 +32,24 @@ const questions = [
       name: 'contri',
     },
     {
-      type: 'input',
+      type: 'list',
       message: 'What license is being used',
       name: 'license',
+      choices: [
+        "Apache License 2.0",
+        "GNU General Public License v3.0",
+        "MIT License",
+        "BSD 2-Clause",
+        "BSD 3-Clause",
+        "Boost Software License 1.0",
+        "Creative Commons Zero 1.0",
+        "Eclipse Public License 2.0",
+        "GNU Affero General Public License v3.0",
+        "GNU General Public License v2.0",
+        "GNU Lesser General Public License v2.1",
+        "Mozilla Public License 2.0",
+        "The Unlicense",
+        ],
     },
     {
       type: 'input',
@@ -46,9 +61,35 @@ const questions = [
       message: 'What FAQ questions should be added to this README file',
       name: 'faq',
     },
+    {
+      type: 'input',
+      message: 'What GitHub account should be on the README file',
+      name: 'gitHubId',
+    },
+    {
+      type: 'input',
+      message: 'What Email should be on the README file',
+      name: 'emailId',
+    },
   ];
 
-// TODO: Create a function to write README file
+/* const licenseOptions = [
+  "Apache License 2.0",
+  "GNU General Public License v3.0",
+  "MIT License",
+  "BSD 2-Clause",
+  "BSD 3-Clause",
+  "Boost Software License 1.0",
+  "Creative Commons Zero 1.0",
+  "Eclipse Public License 2.0",
+  "GNU Affero General Public License v3.0",
+  "GNU General Public License v2.0",
+  "GNU Lesser General Public License v2.1",
+  "Mozilla Public License 2.0",
+  "The Unlicense",
+  ]; */
+
+// TODO: Create a function to write README file ✅
 function writeToFile(fileName, data) {
   console.log(data);
   fs.writeFile(fileName, data, (err) =>
@@ -56,7 +97,7 @@ function writeToFile(fileName, data) {
   );
 }
 
-// TODO: Create a function to initialize app
+// TODO: Create a function to initialize app ✅
 function init() {
     inquirer.prompt(questions)
     .then((response) => {
@@ -64,8 +105,6 @@ function init() {
         }
       );
 }
-
-// prompt question here
 
 // Function call to initialize app
 init();
