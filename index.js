@@ -1,10 +1,10 @@
-// TODO: Include packages needed for this application ✅
+// making sure everything required is being used inside this script
 
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input ✅
+// these are all the questions given in the command prompt that will be passed into the md file 
 const questions = [
     {
       type: 'input',

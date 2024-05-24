@@ -1,4 +1,4 @@
-
+//this function takes the answer from the license question and figures out which badge to assign it
 function renderLicenseBadge(data) {
   if (data.license == "Apache License 2.0") {
     return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
@@ -44,7 +44,7 @@ function renderLicenseBadge(data) {
   };
 };
 
-
+//this function, like the last, just takes the license given in the question and figures out which link should be put on the readme
 function renderLicenseLink(data) {
   if (data.license == "Apache License 2.0") {
     return "https://opensource.org/licenses/Apache-2.0";
@@ -77,10 +77,7 @@ function renderLicenseLink(data) {
   };
 }
 
-
-function renderLicenseSection(license) {}
-
-
+//this function is the main part of this application, it takes all of the information gathered so far and pulls it into a standard README model
 function generateMarkdown(data) {
   var licenseBadge = renderLicenseBadge(data);
   var licenseLink = renderLicenseLink(data);
@@ -127,5 +124,6 @@ https://github.com/${data.gitHubId}
 `;
 }
 
+// This calls the function that imports all information into the create MD function
 module.exports = generateMarkdown;
 
